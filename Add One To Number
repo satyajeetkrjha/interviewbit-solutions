@@ -1,0 +1,22 @@
+vector<int> Solution::plusOne(vector<int> &A) {
+   vector <int> v;
+			 int n=A.size();
+			 reverse(A.begin(),A.end());// first reverse the number so 1234 is now 4321 
+			 int carry=1;
+			 for(int i=0;i<n;i++){
+			 	int sum=A[i]+carry;// it becomes 5
+			 	v.push_back(sum%10);// if it is 9+1 , u push 0 at this place i.e 10%10
+			 	carry=sum/10;//update carry// 5/10=0 so no carry ,but in case of 9+1 , u ahve 10/10=1 as carry
+			 }
+			 // let us take a  case 999 , at end acrry is 1
+			 while(carry>0){
+			 	v.push_back(carry%10);
+			 	carry=carry/10;
+			 }
+			 while(v[v.size()-1]==0 && v.size()>=1){
+			 	v.pop_back();
+			 }
+			 reverse(v.begin(),v.end());
+			 return v;
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+}

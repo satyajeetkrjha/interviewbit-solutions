@@ -1,0 +1,39 @@
+vector<int> Solution::spiralOrder(const vector<vector<int> > &A) {
+	vector <int> v;
+			int n=A.size();// size of rows
+			int m=A[0].size();// size of column 
+			int l=0;// satrting columns index
+			int k=0;// satrting row index
+			while(l<m && k<n){// as long as starting column index<coluymns you have and same for rows 
+			// push first row into vectior 
+			for(int i=l;i<m;i++){
+				v.push_back(A[k][i]);
+				// after pushing first row 
+			}
+			k++;
+			for(int i=k;i<n;i++){
+				v.push_back(A[i][m-1]);
+			}
+			// after pushing last column 
+			// decrease the size of column 
+			m--;
+			if (k<n){
+				for(int i=m-1;i>=l;i--){
+					v.push_back(A[n-1][i]);
+				}
+				n--;
+			}
+			if(l<m)
+		{
+			for(int i=n-1;i>=k;i--){
+				v.push_back(A[i][l]);
+			}
+			l++;;
+			
+				
+			}
+		
+		}
+		return v;
+	}
+ 
